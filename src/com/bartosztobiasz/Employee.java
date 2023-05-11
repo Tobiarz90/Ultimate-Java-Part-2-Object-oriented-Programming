@@ -11,10 +11,10 @@ public class Employee {
         return baseSalary + (hourlyRate * extraHours);
     }
 
-    // getter
-    public int getBaseSalary() {
-        return baseSalary;
-    }
+    // unnecessary detail -> delete it -> reduce coupling
+//    public int getBaseSalary() {
+//        return baseSalary;
+//    }
 
     // setter
     public void setBaseSalary(int baseSalary) {
@@ -23,9 +23,10 @@ public class Employee {
         this.baseSalary = baseSalary;
     }
 
-    public int getHourlyRate() {
-        return hourlyRate;
-    }
+    // unnecessary detail -> delete it -> reduce coupling
+//    public int getHourlyRate() {
+//        return hourlyRate;
+//    }
 
     public void setHourlyRate(int hourlyRate) {
         if (hourlyRate <= 0)
