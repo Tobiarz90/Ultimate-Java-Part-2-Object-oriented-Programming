@@ -3,12 +3,33 @@ package com.bartosztobiasz;
 // Single unit:
 public class Employee {
     // Data:
-    public int baseSalary;
-    public int hourlyRate;
-//    public int extraHours; // changes every month
+    private int baseSalary;
+    private int hourlyRate;
 
     // Methods:
     public int calculateWage(int extraHours) {
         return baseSalary + (hourlyRate * extraHours);
+    }
+
+    // getter
+    public int getBaseSalary() {
+        return baseSalary;
+    }
+
+    // setter
+    public void setBaseSalary(int baseSalary) {
+        if (baseSalary <= 0)
+            throw new IllegalArgumentException("Salary cannot be 0 or less.");
+        this.baseSalary = baseSalary;
+    }
+
+    public int getHourlyRate() {
+        return hourlyRate;
+    }
+
+    public void setHourlyRate(int hourlyRate) {
+        if (hourlyRate <= 0)
+            throw new IllegalArgumentException("Hourly rate cannot be 0 or negative.");
+        this.hourlyRate = hourlyRate;
     }
 }
