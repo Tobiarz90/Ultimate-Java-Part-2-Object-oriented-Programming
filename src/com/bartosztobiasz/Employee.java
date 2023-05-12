@@ -4,6 +4,16 @@ public class Employee {
     private int baseSalary;
     private int hourlyRate;
 
+    // Use an existing logic for constructor overloading.
+    public Employee(int baseSalary) {
+        this(baseSalary, 0); // call a constructor using 'this' keyword
+    }
+
+//    public Employee(int baseSalary) {
+//        setBaseSalary(baseSalary);
+//        setHourlyRate(0);
+//    }
+
     public Employee(int baseSalary, int hourlyRate) {
         setBaseSalary(baseSalary);
         setHourlyRate(hourlyRate);
@@ -13,10 +23,6 @@ public class Employee {
     public int calculateWage() {
         return calculateWage(0);
     }
-
-//    public int calculateWage() {
-//        return baseSalary;
-//    }
 
     public int calculateWage(int extraHours) {
         return baseSalary + (hourlyRate * extraHours);
@@ -29,8 +35,8 @@ public class Employee {
     }
 
     private void setHourlyRate(int hourlyRate) {
-        if (hourlyRate <= 0)
-            throw new IllegalArgumentException("Hourly rate cannot be 0 or negative.");
+        if (hourlyRate < 0)
+            throw new IllegalArgumentException("Hourly rate cannot be negative.");
         this.hourlyRate = hourlyRate;
     }
 }
