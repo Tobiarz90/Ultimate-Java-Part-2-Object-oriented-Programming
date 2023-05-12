@@ -7,6 +7,12 @@ public class Main {
     final static byte MONTHS_IN_YEAR = 12;
     final static byte PERCENT = 100;
 
+    /*
+    one responsibility -> one class
+    (*) reading number from the console => Console class (generic class)
+    (*) printing monthly payments => Mortgage Report class
+    (*) printing payment schedule => Mortgage Report class
+     */
     public static void main(String[] args) {
         int principal = (int) readNumber("Principal: ", 1000, 1_000_000);
         float annualInterest = (float) readNumber("Annual Interest Rate: ", 1, 30);
