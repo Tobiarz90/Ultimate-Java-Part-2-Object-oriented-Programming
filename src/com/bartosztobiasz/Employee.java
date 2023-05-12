@@ -1,25 +1,24 @@
 package com.bartosztobiasz;
 
 public class Employee {
+    public static int numberOfEmployees; // values of static fields are independent of an object
     private int baseSalary;
     private int hourlyRate;
 
-    // Use an existing logic for constructor overloading.
     public Employee(int baseSalary) {
-        this(baseSalary, 0); // call a constructor using 'this' keyword
+        this(baseSalary, 0);
     }
-
-//    public Employee(int baseSalary) {
-//        setBaseSalary(baseSalary);
-//        setHourlyRate(0);
-//    }
 
     public Employee(int baseSalary, int hourlyRate) {
         setBaseSalary(baseSalary);
         setHourlyRate(hourlyRate);
+        numberOfEmployees++;
     }
 
-    // Use an existing logic for method overloading.
+    public static void printNumberOfEmployees() {
+        System.out.println(numberOfEmployees);
+    }
+
     public int calculateWage() {
         return calculateWage(0);
     }
