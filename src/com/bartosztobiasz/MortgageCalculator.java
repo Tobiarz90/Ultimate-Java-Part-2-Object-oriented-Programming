@@ -2,8 +2,8 @@ package com.bartosztobiasz;
 
 // calculations class
 public class MortgageCalculator {
-    public final static byte MONTHS_IN_YEAR = 12;
-    public final static byte PERCENT = 100;
+    private final static byte MONTHS_IN_YEAR = 12;
+    private final static byte PERCENT = 100;
     private final int principal;
     private final float annualInterest;
     private final byte years;
@@ -41,6 +41,15 @@ public class MortgageCalculator {
                 / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
     }
 
+    public double[] getRemainingBalances() {
+        double[] balances = new double[getNumberOfPayments()];
+
+        for (short month = 1; month <= balances.length; month++)
+            balances[month - 1] = calculateBalance(month);
+
+        return balances;
+    }
+
     /*
     duplicated logic (calculateBalance and calculateMortgage)
 
@@ -57,9 +66,5 @@ public class MortgageCalculator {
 
     private int getNumberOfPayments() {
         return years * MONTHS_IN_YEAR;
-    }
-
-    public byte getYears() {
-        return years;
     }
 }
