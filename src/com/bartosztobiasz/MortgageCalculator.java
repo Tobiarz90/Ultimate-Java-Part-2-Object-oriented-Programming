@@ -2,9 +2,9 @@ package com.bartosztobiasz;
 
 // calculations class
 public class MortgageCalculator {
-    private int principal;
-    private float annualInterest;
-    private byte years;
+    private final int principal;
+    private final float annualInterest;
+    private final byte years;
 
     /*
     calculateBalance() and calculateMortgage() are using the same set of parameters:
@@ -37,5 +37,9 @@ public class MortgageCalculator {
         return principal
                 * (Math.pow(1 + monthlyInterest, numberOfPayments) - Math.pow(1 + monthlyInterest, numberOfPaymentsMade))
                 / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
+    }
+
+    public byte getYears() {
+        return years;
     }
 }
