@@ -22,8 +22,8 @@ public class MortgageCalculator {
     }
 
     public double calculateMortgage() {
-        float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
-        float numberOfPayments = years * MONTHS_IN_YEAR;
+        float monthlyInterest = getMonthlyInterest();
+        float numberOfPayments = getNumberOfPayments();
 
         return principal
                 * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))
@@ -33,12 +33,30 @@ public class MortgageCalculator {
     public double calculateBalance(
             short numberOfPaymentsMade
     ) {
-        float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
-        float numberOfPayments = years * MONTHS_IN_YEAR;
+        float monthlyInterest = getMonthlyInterest();
+        float numberOfPayments = getNumberOfPayments();
 
         return principal
                 * (Math.pow(1 + monthlyInterest, numberOfPayments) - Math.pow(1 + monthlyInterest, numberOfPaymentsMade))
                 / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
+    }
+
+    /*
+    duplicated logic (calculateBalance and calculateMortgage)
+
+    (N) Promote this local variables as private fields in this class,
+    and initialize them in the constructor.
+    (Y) Extract this expression as a private method in this class.
+
+    Choose (Y) to prevent recalculating monthly interest
+    whenever you change the annual interest rate (`setAnnualInterest()`).
+     */
+    private float getMonthlyInterest() {
+        return annualInterest / PERCENT / MONTHS_IN_YEAR;
+    }
+
+    private int getNumberOfPayments() {
+        return years * MONTHS_IN_YEAR;
     }
 
     public byte getYears() {
