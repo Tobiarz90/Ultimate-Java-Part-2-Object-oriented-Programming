@@ -1,14 +1,15 @@
 package com.bartosztobiasz;
 
 public class Main {
-    // The main method is static, enabling the JRE to directly call this method without creating an object.
     public static void main(String[] args) {
-        var employee = new Employee(50_000);
+        int principal = (int) Console.readNumber("Principal: ", 1000, 1_000_000);
+        float annualInterest = (float) Console.readNumber("Annual Interest Rate: ", 1, 30);
+        byte years = (byte) Console.readNumber("Period (Years): ", 1, 30);
 
-        System.out.println(Employee.numberOfEmployees);
-        Employee.printNumberOfEmployees(); // static method
+        Mortgage mortgage = new Mortgage(principal, annualInterest, years);
+        mortgage.printMortgage();
 
-        int wage = employee.calculateWage();
-        System.out.println(wage);
+        PaymentSchedule schedule = new PaymentSchedule(principal, annualInterest, years);
+        schedule.printPaymentSchedule();
     }
 }
