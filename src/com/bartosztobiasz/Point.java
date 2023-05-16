@@ -9,14 +9,16 @@ public class Point {
         this.y = y;
     }
 
-
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Point) {
-            var other = (Point) obj; // downcasting
-            return other.x == x && other.y == y;
-        }
+        // comparing an object with itself => optimization technique
+        if (this == obj) // comparing objects by their references (addresses in the memory)
+            return true;
 
-        return false;
+        if (!(obj instanceof Point))
+            return false;
+
+        var other = (Point) obj; // downcasting
+        return other.x == x && other.y == y;
     }
 }
