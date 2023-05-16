@@ -1,5 +1,6 @@
 package com.bartosztobiasz;
 
+// public class UIControl extends Object
 public class UIControl {
     private boolean isEnabled = true;
 
