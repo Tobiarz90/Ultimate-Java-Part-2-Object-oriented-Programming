@@ -16,4 +16,14 @@ public class TextBox extends UIControl {
     public void clear() {
         text = "";
     }
+
+    /*
+    annotation -> a label
+    that we attach to a class member
+    which passes extra information to the Java compiler
+     */
+    @Override // a method declared in Object class
+    public String toString() {
+        return text;
+    }
 }
