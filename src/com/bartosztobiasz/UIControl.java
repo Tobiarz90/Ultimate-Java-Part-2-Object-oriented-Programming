@@ -1,7 +1,7 @@
 package com.bartosztobiasz;
 
 // public class UIControl extends Object
-public class UIControl {
+public abstract class UIControl {
     private boolean isEnabled = true;
 
     public void enable() {
@@ -17,6 +17,5 @@ public class UIControl {
         return isEnabled;
     }
 
-    public void render() {
-    }
+    public abstract void render();
 }

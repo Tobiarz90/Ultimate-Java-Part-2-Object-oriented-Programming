@@ -2,7 +2,11 @@ package com.bartosztobiasz;
 
 public class Main {
     public static void main(String[] args) {
-        UIControl[] controls = {new TextBox(), new CheckBox()};
+        UIControl[] controls = {
+                new TextBox(),
+                new CheckBox()
+                // new UIControl() => NO! UIControl is an abstract concept - it cannot be rendered
+        };
         for (UIControl control : controls) {
             /*
             procedural way:
