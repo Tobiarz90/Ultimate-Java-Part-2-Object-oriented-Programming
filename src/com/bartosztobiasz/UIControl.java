@@ -4,8 +4,9 @@ package com.bartosztobiasz;
 public class UIControl {
     private boolean isEnabled = true;
 
-    // default contractor with no parameters
-    public UIControl() {
+    // call this constructor explicitly inside the subclass
+    public UIControl(boolean isEnabled) {
+        this.isEnabled = isEnabled;
         System.out.println("UIControl");
     }
 
