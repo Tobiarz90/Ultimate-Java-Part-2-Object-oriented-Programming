@@ -4,6 +4,11 @@ package com.bartosztobiasz;
 public class UIControl {
     private boolean isEnabled = true;
 
+    // default contractor with no parameters
+    public UIControl() {
+        System.out.println("UIControl");
+    }
+
     public void enable() {
         isEnabled = true;
     }
