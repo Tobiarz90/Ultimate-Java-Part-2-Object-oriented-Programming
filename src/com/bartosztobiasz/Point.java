@@ -1,5 +1,7 @@
 package com.bartosztobiasz;
 
+import java.util.Objects;
+
 public class Point {
     private final int x;
     private final int y;
@@ -20,5 +22,10 @@ public class Point {
 
         var other = (Point) obj; // downcasting
         return other.x == x && other.y == y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y); // Generating a hash code based on the values.
     }
 }
