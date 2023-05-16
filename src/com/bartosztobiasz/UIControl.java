@@ -4,7 +4,7 @@ package com.bartosztobiasz;
 public abstract class UIControl {
     private boolean isEnabled = true;
 
-    public void enable() {
+    public final void enable() {
         isEnabled = true;
     }
 
