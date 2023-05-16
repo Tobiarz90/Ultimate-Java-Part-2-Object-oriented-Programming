@@ -2,11 +2,14 @@ package com.bartosztobiasz;
 
 public class Main {
     public static void main(String[] args) {
-        var textBox = new TextBox();
-        textBox.setText("Hello World");
+        var control = new UIControl(true);
+        show(control);
 
-        // println() method automatically calls the toString() method on any object
-//        System.out.println(textBox.toString());
-        System.out.println(textBox);
+        var textBox = new TextBox();
+        show(textBox); // upcasting; textBox object gets automatically cast to UIControl object
+    }
+
+    public static void show(UIControl control) {
+        System.out.println(control);
     }
 }
