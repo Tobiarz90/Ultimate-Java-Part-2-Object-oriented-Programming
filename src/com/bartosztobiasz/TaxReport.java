@@ -5,6 +5,7 @@ public class TaxReport {
     private TaxCalculator2023 calculator;
 
     public TaxReport(TaxCalculator2023 calculator) {
+        // The class shouldn't instantiate its dependency!
         calculator = new TaxCalculator2023(100_000);
     }
 
