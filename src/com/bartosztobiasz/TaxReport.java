@@ -1,12 +1,11 @@
 package com.bartosztobiasz;
 
 public class TaxReport {
-    // TaxReport class is tightly coupled to TaxCalculator class
-    private TaxCalculator2023 calculator;
+    private final TaxCalculator calculator;
 
-    public TaxReport(TaxCalculator2023 calculator) {
-        // The class shouldn't instantiate its dependency!
-        calculator = new TaxCalculator2023(100_000);
+    // Constructor injection
+    public TaxReport(TaxCalculator calculator) {
+        this.calculator = calculator;
     }
 
     public void show() {
