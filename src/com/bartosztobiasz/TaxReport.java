@@ -1,7 +1,7 @@
 package com.bartosztobiasz;
 
 public class TaxReport {
-    private final TaxCalculator calculator;
+    private TaxCalculator calculator;
 
     // Constructor injection
     public TaxReport(TaxCalculator calculator) {
@@ -11,5 +11,10 @@ public class TaxReport {
     public void show() {
         var tax = calculator.calculateTax();
         System.out.println(tax);
+    }
+
+    // Setter injection
+    public void setCalculator(TaxCalculator calculator) {
+        this.calculator = calculator;
     }
 }
