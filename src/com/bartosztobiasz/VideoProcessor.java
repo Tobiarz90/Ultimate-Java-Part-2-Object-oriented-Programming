@@ -1,15 +1,20 @@
 package com.bartosztobiasz;
 
 public class VideoProcessor {
+    private final VideoEncoder encoder;
+    private final VideoDatabase database;
+    private final NotificationService notificationService;
+
+    public VideoProcessor(VideoEncoder encoder, VideoDatabase database, NotificationService notificationService) {
+        this.encoder = encoder;
+        this.database = database;
+        this.notificationService = notificationService;
+    }
+
     public void process(Video video) {
-        var encoder = new VideoEncoder();
         encoder.encode(video);
-
-        var database = new VideoDatabase();
         database.store(video);
-
-        var emailService = new EmailService();
-        emailService.sendEmail(video.getUser());
+        notificationService.notify(video.getUser());
     }
 }
 
