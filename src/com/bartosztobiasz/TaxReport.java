@@ -2,10 +2,10 @@ package com.bartosztobiasz;
 
 public class TaxReport {
     // TaxReport class is tightly coupled to TaxCalculator class
-    private TaxCalculator calculator;
+    private TaxCalculator2023 calculator;
 
-    public TaxReport(TaxCalculator calculator) {
-        calculator = new TaxCalculator(100_000);
+    public TaxReport(TaxCalculator2023 calculator) {
+        calculator = new TaxCalculator2023(100_000);
     }
 
     public void show() {
